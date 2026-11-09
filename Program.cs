@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace Ejercicios_Iterativos
 {
@@ -6,7 +7,7 @@ namespace Ejercicios_Iterativos
     {
         static void Main(string[] args)
         {
-            Ejercicio10();
+            Ejercicio11();
 
             Console.WriteLine("Pulsa una tecla para salir...");
             Console.ReadKey();
@@ -296,6 +297,51 @@ namespace Ejercicios_Iterativos
             for (int i = 0; i < numeros.Length; i++)
             {
                 Console.WriteLine(numeros[i]);
+            }
+        }
+
+        // Ejercicio 11: pila con Stack
+        static void Ejercicio11()
+        {
+            Stack pila = new Stack();
+
+            int cantidad;
+            do
+            {
+                cantidad = LeerEntero("¿Cuántos valores quieres introducir?: ");
+                if (cantidad <= 0)
+                {
+                    Console.WriteLine("Debe ser mayor que 0.");
+                }
+            } while (cantidad <= 0);
+
+            for (int i = 0; i < cantidad; i++)
+            {
+                // Push añade el valor en la cima
+                pila.Push(LeerEntero($"Valor {i + 1}: "));
+            }
+
+            Console.WriteLine("Valores de la pila (de la cima hacia abajo):");
+            foreach (object valor in pila)
+            {
+                Console.WriteLine(valor);
+            }
+
+            // Pop saca el elemento de la cima, comprobamos que hay al menos dos
+            if (pila.Count >= 2)
+            {
+                Console.WriteLine($"Sacamos: {pila.Pop()}");
+                Console.WriteLine($"Sacamos: {pila.Pop()}");
+
+                Console.WriteLine("Valores de la pila tras sacar dos:");
+                foreach (object valor in pila)
+                {
+                    Console.WriteLine(valor);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No hay dos elementos para sacar.");
             }
         }
     }
