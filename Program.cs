@@ -6,7 +6,7 @@ namespace Ejercicios_Iterativos
     {
         static void Main(string[] args)
         {
-            Ejercicio9();
+            Ejercicio10();
 
             Console.WriteLine("Pulsa una tecla para salir...");
             Console.ReadKey();
@@ -281,6 +281,21 @@ namespace Ejercicios_Iterativos
                 {
                     Console.WriteLine($"{valores[i]} es impar");
                 }
+            }
+        }
+
+        // Ejercicio 10: ordenar un array
+        static void Ejercicio10()
+        {
+            int[] numeros = { 42, 7, 19, 3, 88, 25, 1, 64, 12, 50 };
+
+            // Array.Sort ordena de menor a mayor
+            Array.Sort(numeros);
+
+            Console.WriteLine("Array ordenado:");
+            for (int i = 0; i < numeros.Length; i++)
+            {
+                Console.WriteLine(numeros[i]);
             }
         }
     }
