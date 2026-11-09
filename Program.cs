@@ -6,7 +6,7 @@ namespace Ejercicios_Iterativos
     {
         static void Main(string[] args)
         {
-            Ejercicio5();
+            Ejercicio6();
 
             Console.WriteLine("Pulsa una tecla para salir...");
             Console.ReadKey();
@@ -201,6 +201,31 @@ namespace Ejercicios_Iterativos
             else
             {
                 Console.WriteLine("Las posiciones no son válidas.");
+            }
+        }
+
+        // Ejercicio 6: factorial de un número
+        static void Ejercicio6()
+        {
+            int numero = LeerEntero("Introduce un número: ");
+
+            if (numero < 0)
+            {
+                Console.WriteLine("El factorial no existe para números negativos.");
+            }
+            else if (numero > 20)
+            {
+                // A partir de 21 el resultado no cabe en un long
+                Console.WriteLine("El número es demasiado grande, introduce uno hasta 20.");
+            }
+            else
+            {
+                long factorial = 1;
+                for (int i = 2; i <= numero; i++)
+                {
+                    factorial *= i;
+                }
+                Console.WriteLine($"El factorial de {numero} es {factorial}");
             }
         }
     }
