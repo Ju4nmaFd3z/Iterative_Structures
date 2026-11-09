@@ -6,7 +6,7 @@ namespace Ejercicios_Iterativos
     {
         static void Main(string[] args)
         {
-            Ejercicio4();
+            Ejercicio5();
 
             Console.WriteLine("Pulsa una tecla para salir...");
             Console.ReadKey();
@@ -44,6 +44,22 @@ namespace Ejercicios_Iterativos
                 }
             } while (!esValido);
             return numero;
+        }
+
+        // Pide una sola letra y repite hasta que se escriba solo un carácter
+        static char LeerLetra(string mensaje)
+        {
+            string entrada;
+            do
+            {
+                Console.Write(mensaje);
+                entrada = Console.ReadLine() ?? "";
+                if (entrada.Length != 1)
+                {
+                    Console.WriteLine("Escribe solo un carácter.");
+                }
+            } while (entrada.Length != 1);
+            return entrada[0];
         }
 
         // Ejercicio 1: cuál de dos números es mayor
@@ -142,6 +158,49 @@ namespace Ejercicios_Iterativos
             for (int i = 1; i <= 10; i++)
             {
                 Console.WriteLine($"{numero} x {i} = {numero * i}");
+            }
+        }
+
+        // Ejercicio 5: métodos de la clase string
+        static void Ejercicio5()
+        {
+            Console.Write("Introduce una cadena de texto: ");
+            string texto = Console.ReadLine() ?? "";
+
+            Console.WriteLine($"Longitud: {texto.Length}");
+
+            Console.Write("Subcadena a buscar: ");
+            string busca = Console.ReadLine() ?? "";
+            Console.WriteLine($"¿Contiene \"{busca}\"?: {texto.Contains(busca)}");
+
+            char vieja = LeerLetra("Letra a reemplazar: ");
+            char nueva = LeerLetra("Letra nueva: ");
+            Console.WriteLine($"Texto con el reemplazo: {texto.Replace(vieja, nueva)}");
+
+            Console.WriteLine($"En mayúsculas: {texto.ToUpper()}");
+            Console.WriteLine($"En minúsculas: {texto.ToLower()}");
+
+            // Las posiciones empiezan en 0
+            int posicion = LeerEntero("Posición del carácter a eliminar: ");
+            if (posicion >= 0 && posicion < texto.Length)
+            {
+                Console.WriteLine($"Texto sin ese carácter: {texto.Remove(posicion, 1)}");
+            }
+            else
+            {
+                Console.WriteLine("La posición está fuera del texto.");
+            }
+
+            int inicio = LeerEntero("Posición de inicio de la subcadena: ");
+            int fin = LeerEntero("Posición de fin de la subcadena: ");
+            if (inicio >= 0 && fin < texto.Length && inicio <= fin)
+            {
+                // Substring pide la longitud, no la posición final
+                Console.WriteLine($"Subcadena: {texto.Substring(inicio, fin - inicio + 1)}");
+            }
+            else
+            {
+                Console.WriteLine("Las posiciones no son válidas.");
             }
         }
     }
