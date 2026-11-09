@@ -6,7 +6,7 @@ namespace Ejercicios_Iterativos
     {
         static void Main(string[] args)
         {
-            Ejercicio8();
+            Ejercicio9();
 
             Console.WriteLine("Pulsa una tecla para salir...");
             Console.ReadKey();
@@ -249,6 +249,39 @@ namespace Ejercicios_Iterativos
             // El límite superior de Next no se incluye, por eso 31
             int numero = aleatorio.Next(10, 31);
             Console.WriteLine($"Número aleatorio: {numero}");
+        }
+
+        // Ejercicio 9: array con valores pares e impares
+        static void Ejercicio9()
+        {
+            int tamanio;
+            do
+            {
+                tamanio = LeerEntero("Tamaño del array: ");
+                if (tamanio <= 0)
+                {
+                    Console.WriteLine("El tamaño debe ser mayor que 0.");
+                }
+            } while (tamanio <= 0);
+
+            int[] valores = new int[tamanio];
+            for (int i = 0; i < valores.Length; i++)
+            {
+                valores[i] = LeerEntero($"Valor {i + 1}: ");
+            }
+
+            Console.WriteLine("Resultado:");
+            for (int i = 0; i < valores.Length; i++)
+            {
+                if (valores[i] % 2 == 0)
+                {
+                    Console.WriteLine($"{valores[i]} es par");
+                }
+                else
+                {
+                    Console.WriteLine($"{valores[i]} es impar");
+                }
+            }
         }
     }
 }
