@@ -6,7 +6,7 @@ namespace Ejercicios_Iterativos
     {
         static void Main(string[] args)
         {
-            Ejercicio3();
+            Ejercicio4();
 
             Console.WriteLine("Pulsa una tecla para salir...");
             Console.ReadKey();
@@ -24,6 +24,23 @@ namespace Ejercicios_Iterativos
                 if (!esValido)
                 {
                     Console.WriteLine("Entrada no válida. Introduce un número.");
+                }
+            } while (!esValido);
+            return numero;
+        }
+
+        // Pide un entero y repite hasta que sea válido
+        static int LeerEntero(string mensaje)
+        {
+            int numero;
+            bool esValido;
+            do
+            {
+                Console.Write(mensaje);
+                esValido = int.TryParse(Console.ReadLine(), out numero);
+                if (!esValido)
+                {
+                    Console.WriteLine("Entrada no válida. Introduce un número entero.");
                 }
             } while (!esValido);
             return numero;
@@ -106,6 +123,25 @@ namespace Ejercicios_Iterativos
                 default:
                     Console.WriteLine("Opción no válida. Usa C, S, V o D.");
                     break;
+            }
+        }
+
+        // Ejercicio 4: tabla de multiplicar
+        static void Ejercicio4()
+        {
+            int numero;
+            do
+            {
+                numero = LeerEntero("Introduce un número del 1 al 9: ");
+                if (numero < 1 || numero > 9)
+                {
+                    Console.WriteLine("El número está fuera de rango.");
+                }
+            } while (numero < 1 || numero > 9);
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"{numero} x {i} = {numero * i}");
             }
         }
     }
