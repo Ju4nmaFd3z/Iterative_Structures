@@ -6,7 +6,7 @@ namespace Ejercicios_Iterativos
     {
         static void Main(string[] args)
         {
-            Ejercicio6();
+            Ejercicio7();
 
             Console.WriteLine("Pulsa una tecla para salir...");
             Console.ReadKey();
@@ -227,6 +227,18 @@ namespace Ejercicios_Iterativos
                 }
                 Console.WriteLine($"El factorial de {numero} es {factorial}");
             }
+        }
+
+        // Ejercicio 7: abecedario de la Z a la A
+        static void Ejercicio7()
+        {
+            // El código ASCII de la Z es 90 y el de la A es 65
+            for (int codigo = 90; codigo >= 65; codigo--)
+            {
+                string letra = Convert.ToString((char)codigo);
+                Console.Write(letra + " ");
+            }
+            Console.WriteLine();
         }
     }
 }
