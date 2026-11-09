@@ -6,7 +6,7 @@ namespace Ejercicios_Iterativos
     {
         static void Main(string[] args)
         {
-            Ejercicio7();
+            Ejercicio8();
 
             Console.WriteLine("Pulsa una tecla para salir...");
             Console.ReadKey();
@@ -239,6 +239,16 @@ namespace Ejercicios_Iterativos
                 Console.Write(letra + " ");
             }
             Console.WriteLine();
+        }
+
+        // Ejercicio 8: número aleatorio entre 10 y 30
+        static void Ejercicio8()
+        {
+            Random aleatorio = new Random();
+
+            // El límite superior de Next no se incluye, por eso 31
+            int numero = aleatorio.Next(10, 31);
+            Console.WriteLine($"Número aleatorio: {numero}");
         }
     }
 }
